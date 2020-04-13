@@ -35,6 +35,7 @@ interface Pokemon {
 }
 
 export const maxSpeed : (pokemonsArray : Pokemon[]) => Pokemon[] = (pokemonsArray : Pokemon[]) : Pokemon[] => {
+    //delete
     let max : number = pokemonsArray.reduce((acc : number, cur : Pokemon) => (acc < cur.base.Speed) ? acc = cur.base.Speed : acc, 0);
     return pokemonsArray.filter((pokemon:Pokemon) => pokemon.base.Speed === max);
 };
