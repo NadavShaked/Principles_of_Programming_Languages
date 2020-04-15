@@ -2,13 +2,13 @@ import { filter, Pred , reject, curry, compose} from "ramda";
 import { type } from "os";
 
 /* Question 1 */
-export const partition: (pred: Pred, arr: any[]) => any[][] = (pred: Pred, arr: any[]) : any[][] => [arr.filter(pred,arr), reject(pred, arr)];
+export const partition: <T>(pred: Pred, arr: T[]) => T[][] = <T>(pred: Pred, arr: T[]) : T[][] => [arr.filter(pred,arr), reject(pred, arr)];
 
 /* Question 2 */
-export const mapMat: (func: Function, matrix: any[][]) => any[][] = (func:Function, matrix: any[][]) => matrix.map(x => x.map(y => func(y)));
+export const mapMat: <T>(func: Function, matrix: T[][]) => T[][] = <T>(func:Function, matrix: T[][]) => matrix.map(x => x.map(y => func(y)));
     
 /* Question 3 */
-export const composeMany: (func: Function[]) => any = (funcArr:Function[]) => funcArr.reduce((acc:Function, cur:Function) => (input: any) => acc(cur(input)), (input: Function) => input);
+export const composeMany: <T>(func: Function[]) => Function = (funcArr:Function[]) => funcArr.reduce((acc:Function, cur:Function) => (input: Function) => acc(cur(input)), (input: Function) => input);
 
 /* Question 4 */
 interface Languages {
