@@ -34,11 +34,11 @@ interface Pokemon {
     base: Stats;
 }
 
-export const maxSpeed : (pokemonsArray : Pokemon[]) => Pokemon[] = (pokemonsArray : Pokemon[]) : Pokemon[] => {
-    let max : number = pokemonsArray.reduce((acc : number, cur : Pokemon) => (acc < cur.base.Speed) ? acc = cur.base.Speed : acc, 0);
-    return pokemonsArray.filter((pokemon:Pokemon) => pokemon.base.Speed === max);
+export const maxSpeed: (pokemonsArray: Pokemon[]) => Pokemon[] = (pokemonsArray: Pokemon[]): Pokemon[] => {
+    const max : number = pokemonsArray.reduce((acc: number, cur: Pokemon) => (acc < cur.base.Speed) ? acc = cur.base.Speed : acc, 0);
+    return pokemonsArray.filter((pokemon: Pokemon) => pokemon.base.Speed === max);
 };
 
-export const grassTypes = (pokemonArray:Pokemon[]) => pokemonArray.filter((pokemon:Pokemon) => pokemon.type.reduce((acc: boolean, cur: string) => acc = acc || (cur === "Grass"), false) === true).map((pokemon:Pokemon)=>pokemon.name.english).sort();
+export const grassTypes: (pokemonArray: Pokemon[]) => string[] = (pokemonArray: Pokemon[]) => pokemonArray.filter((pokemon: Pokemon) => pokemon.type.reduce((acc: boolean, cur: string) => acc = acc || (cur === "Grass"), false) === true).map((pokemon: Pokemon) => pokemon.name.english).sort();
 
-export const uniqueTypes = (pokemonArray:Pokemon[]) => pokemonArray.reduce((acc:String[], cur:Pokemon) =>  acc.concat(cur.type.filter((pokemonType:String) => acc.indexOf(pokemonType) === -1)), []).sort();
+export const uniqueTypes: (pokemonArray: Pokemon[]) => string[] = (pokemonArray: Pokemon[]) => pokemonArray.reduce((acc: string[], cur: Pokemon) =>  acc.concat(cur.type.filter((pokemonType: string) => acc.indexOf(pokemonType) === -1)), []).sort();
